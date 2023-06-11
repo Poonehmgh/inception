@@ -18,32 +18,15 @@ down:
 
 re: down build
 
-# Stop configuration and clean configuration-created files
 clean: down
-	@docker system prune -a
+	@docker system prune -a --volumes
 	@sudo rm -rf ~/data/wordpress/*
-	@sudo rm -rf  ~/data/mariadb/*
+	@sudo rm -rf ~/data/mariadb/*
 
-# Stop configuration and clean all files
 fclean:
-	@docker stop $$(docker ps -qa)
-	@docker system prune -a -f --volumes
-	@docker network prune -f
-	@docker volume prune -f
+	@docker-compose -f $(COMPOSE) --env-file $(ENV) down
 	@sudo rm -rf ~/data/wordpress/*
-	@sudo rm -rf  ~/data/mariadb/*
+	@sudo rm -rf ~/data/mariadb/*
+
 
 .PHONY: all directories build down clean fclean re
-
-
-# SRC	:= ./src/docker-compose.yml
-# NAME	:= inception
-
-# all: ${NAME}
-
-# ${NAME}: ${SRC}
-# 	@docker system prune -f
-# 	@docker-compose -f ${SRC} up --build
-
-# clean:
-# 	@docker-compose -f ${SRC} down
