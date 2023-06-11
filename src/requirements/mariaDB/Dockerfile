@@ -5,13 +5,13 @@ FROM alpine:3.17
 RUN apk add --no-cache mariadb mariadb-client
 
 # Copy the MariaDB configuration file
-COPY conf/md.conf /etc/mysql/md.conf
+COPY requirements/mariaDB/conf/md.conf /etc/mysql/md.conf
 
 # Set the data directory for MariaDB
 RUN mkdir -p /var/lib/mysql
 
 # Set the entrypoint script
-COPY tools/entrypoint.sh /entrypoint.sh
+COPY requirements/mariaDB/tools/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Expose the default MariaDB port
