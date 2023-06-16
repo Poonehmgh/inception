@@ -27,8 +27,7 @@ RUN chown -R mysql:mysql /var/run/mysqld
 RUN chmod 777 /var/run/mysqld
 COPY requirements/mariaDB/conf/md.conf /etc/mysql/md.conf
 COPY requirements/mariaDB/tools/init.sql /docker-entrypoint-initdb.d/
-COPY requirements/mariaDB/tools/default_to_env.sh /docker-entrypoint-initdb.d/
-RUN chmod 777 /docker-entrypoint-initdb.d/default_to_env.sh
+  
 RUN chmod 777 /docker-entrypoint-initdb.d/init.sql
 RUN touch /var/run/mysqld/mysqld.sock
 RUN chown -R mysql:mysql /var/run/mysqld/mysqld.sock
