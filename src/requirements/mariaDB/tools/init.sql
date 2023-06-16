@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS my_database;
 USE my_database;
-CREATE USER 'username'@'%' IDENTIFIED BY 'user_password';
-GRANT ALL PRIVILEGES ON my_database.* TO 'username'@'%';
-CREATE USER 'rootname'@'%' IDENTIFIED BY 'root_password';
-GRANT ALL PRIVILEGES ON my_database.* TO 'rootname'@'%';
+CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';
+GRANT ALL PRIVILEGES ON my_database.* TO '$MYSQL_USER'@'%';
+CREATE USER '$MYSQL_ROOT_USER'@'%' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
+GRANT ALL PRIVILEGES ON my_database.* TO '$MYSQL_ROOT_USER'@'%';

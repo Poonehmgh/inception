@@ -25,5 +25,5 @@ RUN wget https://wordpress.org/latest.zip && unzip latest.zip \
 	&& cp -rf wordpress/* . && rm -rf wordpress latest.zip
 COPY requirements/wordpress/conf/wp-config.sh .
 RUN sh wp-config.sh && rm -f wp-config.sh && chmod -R 0777 wp-content/
-
+EXPOSE 9000
 CMD ["/usr/sbin/php-fpm8", "-F"]

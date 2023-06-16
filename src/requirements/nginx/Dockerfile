@@ -5,7 +5,7 @@ FROM alpine:3.17
 RUN apk update && apk add nginx
 
 # Copy the Nginx configuration file
-COPY requirements/nginx/conf/nginx.conf /etc/nginx/nginx.conf
+COPY requirements/nginx/conf/nginx.conf /etc/nginx/default
 
 # Copy the SSL certificate and private key files
 COPY requirements/nginx/conf/certs/cert.pem /etc/nginx/cert.pem

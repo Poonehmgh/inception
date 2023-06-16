@@ -11,7 +11,7 @@ services:
       - ./requirements/nginx/tools/:/etc/nginx/ssl/
       - wordpress:/var/www/
     ports:
-      - "443:443"
+      - 443:443
     networks:
       - inception
     restart: always
@@ -20,6 +20,8 @@ services:
       context: .
       dockerfile: requirements/mariaDB/Dockerfile
     container_name: mariadb
+    ports:
+      - 3306:3306
     networks:
       - inception
     restart: always
@@ -34,6 +36,8 @@ services:
       - wordpress:/var/www/
     networks:
       - inception
+    # ports:
+    #   - 9000:9000
     restart: always
     
 volumes:
