@@ -3,6 +3,7 @@ FROM debian:buster
 RUN apt-get update && apt-get install -y php-mysql php-fpm mariadb-client wget unzip curl sendmail
 
 RUN mkdir -p /var/www/html
+RUN sed -i -r "s/127.0.0.1       localhost/127.0.0.1       localhost pmoghadd.42.fr/1" /etc/hosts
 WORKDIR /var/www/
 
 RUN wget https://wordpress.org/latest.zip
@@ -18,7 +19,6 @@ RUN mv wp-cli.phar /usr/local/bin/wp-cli
 COPY --chown=www-data:www-data conf/wordpress-entrypoint_backup.sh /var/www/wordpress/wordpress-entrypoint_backup.sh
 RUN chmod +x /var/www/wordpress/wordpress-entrypoint_backup.sh
 COPY --chown=www-data:www-data conf/www.conf /etc/php/7.3/fpm/pool.d
-
 EXPOSE 9000
 
 WORKDIR /var/www/wordpress
