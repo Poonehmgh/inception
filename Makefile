@@ -14,9 +14,9 @@ $(NAME): all
 all: clean up
 
 up:
-	mkdir /Users/pooneh/data
-	mkdir /Users/pooneh/data/db_volume
-	mkdir /Users/pooneh/data/wordpress_volume
+	mkdir /home/poonehinc/data
+	mkdir /home/poonehinc/data/db_volume
+	mkdir /home/poonehinc/data/wordpress_volume
 	@echo "$(RED)Building containers for $(NAME)...$(UNDO_COL)"
 	docker-compose -f $(SRC) up -d --build
 	@echo "$(GREEN)$(NAME) is now up and running!$(UNDO_COL)"
@@ -35,9 +35,9 @@ fclean: clean
 	@echo "$(RED)Removing all volumes AND MOUNTED DIRECTORIES for $(NAME)...$(UNDO_COL)"
 	docker volume rm -f db_volume
 	docker volume rm -f wordpress_volume
-	rm -rf /Users/pooneh/data/db_volume
-	rm -rf /Users/pooneh/data/wordpress_volume
-	rm -rf /Users/pooneh/data
+	rm -rf /home/poonehinc/data/db_volume
+	rm -rf /home/poonehinc/data/wordpress_volume
+	rm -rf /home/poonehinc/data
 	@echo "$(GREEN)Removed all volumes for $(NAME)!$(UNDO_COL)"
 
 re: fclean up

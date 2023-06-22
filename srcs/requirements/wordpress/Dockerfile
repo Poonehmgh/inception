@@ -3,7 +3,7 @@ FROM debian:buster
 RUN apt-get update && apt-get install -y php-mysql php-fpm mariadb-client wget unzip curl sendmail
 
 RUN mkdir -p /var/www/html
-RUN sed -i -r "s/127.0.0.1       localhost/127.0.0.1       localhost pmoghadd.42.fr/1" /etc/hosts
+#RUN sed -i -r "s/127.0.0.1       localhost/127.0.0.1       localhost pmoghadd.42.fr/1" /etc/hosts
 WORKDIR /var/www/
 
 RUN wget https://wordpress.org/latest.zip
