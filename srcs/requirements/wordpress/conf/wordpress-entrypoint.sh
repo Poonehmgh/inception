@@ -18,6 +18,6 @@ wp-cli --allow-root core install \
 
 wp-cli --allow-root option update siteurl ${WORDPRESS_WEBSITE_URL}
 wp-cli --allow-root rewrite structure '/%year%/%monthnum%/%day%/%postname%/'
-wp-cli --allow-root user create $(WORDPRESS_OTHER_USER) ${WORDPRESS_OTHER_USER_EMAIL} --role=contributor --user_pass=${WORDPRESS_OTHER_USER_PASSWORD}
+wp-cli --allow-root user create ${WORDPRESS_OTHER_USER} ${WORDPRESS_OTHER_USER_EMAIL} --role=contributor --user_pass=${WORDPRESS_OTHER_USER_PASSWORD}
 
 exec "$@"
