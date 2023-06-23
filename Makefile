@@ -10,7 +10,7 @@ up:
 # mkdir /Users/pooneh/data
 # mkdir /Users/pooneh/data/db_volume
 # mkdir /Users/pooneh/data/wordpress_volume
-	mkdir /Users/pooneh/data
+	mkdir /home/poonehinc/data
 	mkdir /home/poonehinc/data/db_volume
 	mkdir /home/poonehinc/data/wordpress_volume
 	docker-compose -f $(SRC) up -d --build
@@ -27,7 +27,7 @@ fclean: clean
 # rm -rf /Users/pooneh/data/db_volume
 # rm -rf /Users/pooneh/data/wordpress_volume
 # rm -rf /Users/pooneh/data
-	rm -rf /Users/pooneh/data
+	rm -rf /home/poonehinc/data
 	rm -rf /home/poonehinc/data/db_volume
 	rm -rf /home/poonehinc/data/wordpress_volume
 
