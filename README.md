@@ -185,7 +185,7 @@ a good source on volumes: https://www.ionos.com/digitalguide/server/know-how/doc
 
 ## Project
 
-### VM 
+### 1-VM 
 First, we need to do everything the project asks for, in a VM. So the very first step would be to install a VM. We can do it via VirtualBox which is open source and free. Here is no requirement to configure our machine to the command line, we can quite install a graphical interface like Gnome for example.
 #### 1. VM: I installed Debian 11, and considered 20 gig for my VM. (If the considered memory is not high enough, the software and the packages will not be installed correctly.) {tick these to be installed when asked during the installation : visual desktop + Gnome + SSH }
 
@@ -197,5 +197,31 @@ I installed SSH-server on my VM: `sudo apt install openssh-server` then add this
 		and then provide the password and the user name (normal user name of VM in small letters.) 
 (By default, the SSH server on Debian does not allow direct root login via SSH for security reasons.)
 		when connected with the VM through ssh, we can clone our repo in the VM through the terminal from the host and just edit our code normally on our machine. but we need to add the ssh key of the VM to our git repo first.
+
+### 2-Nginx
+
+Nginx is a software that helps websites and applications work better and handle lots of visitors. It can be used as a web server or a middleman between the visitors and the actual servers that store the website or app. Nginx makes websites load faster, distributes the workload across servers, and helps keep everything running smoothly.
+
+It's a popular **open-source web server** and reverse proxy server software. It is designed to efficiently handle high traffic websites and applications, offering excellent performance, scalability, and reliability.
+
+Nginx can now function as a web server, load balancer, reverse proxy server, mail proxy server, and more. **Nginx is often used as a front-end proxy to distribute incoming traffic across multiple backend servers, improving the overall performance and reliability of web applications.
+
+Some key features of Nginx include:
+
+1. High performance: Nginx uses an asynchronous, event-driven architecture that allows it to efficiently handle a large number of concurrent connections while consuming fewer system resources compared to traditional web servers.
+    
+2. Load balancing: Nginx can distribute incoming traffic across multiple servers, helping to evenly distribute the workload and improve the responsiveness of web applications.
+    
+3. Reverse proxying: It can act as a reverse proxy server, sitting between clients and backend servers. This allows Nginx to handle requests on behalf of the backend servers, providing features such as SSL termination, caching, and request routing.
+    
+4. Caching: Nginx includes built-in caching capabilities that can help reduce the load on backend servers by serving static content directly from memory or disk.
+    
+5. SSL/TLS termination: Nginx can handle SSL/TLS encryption and decryption, offloading this processing from backend servers and improving overall performance.
+    
+6. Virtual hosting: Nginx supports virtual hosting, allowing multiple websites or applications to be hosted on a single server.
+
+
+
+
  
 ## Good to Know
