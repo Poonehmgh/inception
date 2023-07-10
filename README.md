@@ -2,9 +2,54 @@
 
 ## Need to know
 
+### Docker
+## Docker
+
+##### a good ref on starting: https://docs.docker.com/get-started/
+
+
+Docker is an open-source platform that allows you to automate the deployment, scaling, and management of applications using containerization. It provides a way to package an application and its dependencies into a standardized unit (= a container).
+
+Here are some key features of Docker:
+
+1. **Containerization**: Docker utilizes containerization technology, allowing you to package an application and its dependencies into a container.
+    
+2. **Portability**: Docker containers are highly portable. Once a container is created, it can be run on any machine or cloud platform that supports Docker, without worrying about differences in underlying infrastructure or operating systems. This eliminates the "works on my machine" problem.
+    
+3. **Isolation**: Docker provides process-level isolation, allowing containers to run independently without interfering with each other or the host system.
+
+5. **Efficiency**: Docker enables efficient resource utilization by sharing the host operating system's kernel and resources among containers. This eliminates the need for running separate virtual machines (VMs) for each application, resulting in reduced overhead and improved efficiency.
+    
+5. **Version Control**: Docker images and containers can be versioned, allowing you to track changes and roll back to previous versions if needed. This enables easier collaboration among team members and facilitates the reproducibility of application environments.
+    
+6. **Scalability**: Docker simplifies application scaling. You can replicate and distribute containers across multiple hosts, allowing for horizontal scaling and efficient resource allocation. Docker also integrates with orchestration tools, such as Docker Swarm and Kubernetes, to manage containerized applications at scale.
+    
+7. **Dependency Management**: Docker simplifies dependency management by encapsulating an application and its dependencies within a container. This eliminates conflicts between different versions of software libraries or dependencies, making it easier to manage complex application stacks.
+    
+8. **Ecosystem and Community**: Docker has a vibrant ecosystem and a large community. It provides a vast collection of pre-built Docker images available from Docker Hub, a public registry. Additionally, the Docker community actively contributes to the development of tooling, libraries, and best practices.
+
+there are other containerization technologies and platforms apart from Docker. While Docker is the most widely known and commonly used containerization solution, there are alternatives like *Podman*, *rkt*, *runc* and etc.
+
+
+Docker piggybacks off of features in the Linux kernel to perform its magic. Because of this reliance on the Linux kernel, it’s important to note that Docker _only_ runs on Linux. For instance, if you develop on an Apple computer (which uses a Darwin/BSD Kernel), you’ll need to install a lightweight Linux virtual machine before being able to use Docker.
+
+Docker, by default, runs natively on Linux operating systems because it leverages certain features of the Linux kernel, such as namespaces and control groups, for containerization. This means that if you have a Linux machine, you can use Docker without any additional setup.
+However, Docker also provides solutions for non-Linux machines, such as Windows and macOS, through **Docker Desktop**. Docker Desktop provides a lightweight virtualization environment that runs a Linux virtual machine (LinuxKit) under the hood. This Linux virtual machine enables Docker to function on non-Linux operating systems.
+
+So, while Docker itself relies on Linux kernel features, Docker Desktop provides a way for developers to use Docker on non-Linux machines without requiring a separate Linux installation or virtual machine setup
+
+Docker is written in the Go programming language and takes advantage of several features of the Linux kernel to deliver its functionality. Docker uses a technology called `namespaces` to provide the isolated workspace called the _container_. When you run a container, Docker creates a set of _namespaces_ for that container.
+some good refs: 
+https://www.codementor.io/blog/docker-technology-5x1kilcbow
+https://docs.docker.com/get-started/
+
+### Docker image
+
+A **Docker image** is a read-only template used to create Docker containers. It contains the instructions for creating a container. Docker images are built from a set of instructions defined in a Dockerfile, which specifies how to assemble the image.
+
+![alt text](https://i.imgur.com/GQmpMcx.png)
 
 ![Alt Text](https://i.imgur.com/thalmE7.png)
-
 
 ### Docker compose
 Docker Compose is a tool that allows you to define and manage multi-container applications. It is a separate component of Docker that works in conjunction with Docker Engine to simplify the orchestration of multiple containers that make up an application.
