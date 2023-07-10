@@ -181,24 +181,7 @@ But when we run docker-compose, the volumes specified in the `volumes` section o
 
 a good source on volumes: https://www.ionos.com/digitalguide/server/know-how/docker-container-volumes/
 
-
-
-## Project
-
-### 1-VM 
-First, we need to do everything the project asks for, in a VM. So the very first step would be to install a VM. We can do it via VirtualBox which is open source and free. Here is no requirement to configure our machine to the command line, we can quite install a graphical interface like Gnome for example.
-#### 1. VM: I installed Debian 11, and considered 20 gig for my VM. (If the considered memory is not high enough, the software and the packages will not be installed correctly.) {tick these to be installed when asked during the installation : visual desktop + Gnome + SSH }
-
- #### 2. Docker on VM 
- Second, I installed the docker on my VM (guide here: https://docs.docker.com/engine/install/debian/) 
- #### 3. Connected my host with my VM through SSH.
-I installed SSH-server on my VM: `sudo apt install openssh-server` then add this rule to the port forwarding according to this reference: https://dev.to/developertharun/easy-way-to-ssh-into-virtualbox-machine-any-os-just-x-steps-5d9i and then in the host machine adding this command: ```
-		ssh -p 3022 <username>@127.0.0.1```
-		and then provide the password and the user name (normal user name of VM in small letters.) 
-(By default, the SSH server on Debian does not allow direct root login via SSH for security reasons.)
-		when connected with the VM through ssh, we can clone our repo in the VM through the terminal from the host and just edit our code normally on our machine. but we need to add the ssh key of the VM to our git repo first.
-
-### 2-Nginx
+### Nginx
 
 Nginx is a software that helps websites and applications work better and handle lots of visitors. It can be used as a web server or a middleman between the visitors and the actual servers that store the website or app. Nginx makes websites load faster, distributes the workload across servers, and helps keep everything running smoothly.
 
@@ -219,6 +202,35 @@ Some key features of Nginx include:
 5. SSL/TLS termination: Nginx can handle SSL/TLS encryption and decryption, offloading this processing from backend servers and improving overall performance.
     
 6. Virtual hosting: Nginx supports virtual hosting, allowing multiple websites or applications to be hosted on a single server.
+
+![alt text](https://i.imgur.com/fYBmIAW.png)
+
+
+## Project
+
+### What are we doing in this project? 
+
+The overall goal of the project is to set up a local web infrastructure using Docker. By configuring NGINX, WordPress, and MariaDB in separate containers, we will create a fully functioning website accessible through a domain name (: `login.42.fr`) or `localhost`. We'll be able to create posts, pages, and upload files, ensuring that the data is stored in the MariaDB database and served by NGINX through the WordPress application.
+
+We will have a working local web server environment capable of hosting and managing a website using WordPress and MariaDB.
+
+NGINX serves as **the web server** of our website in this project. It receives incoming HTTP requests and handles the routing and serving of web pages. NGINX acts as the software running on our local machine, functioning as the server for our website.
+MariaDB is **the database management system** used in this project. It stores and manages the website's data, including posts, pages, and other content created using WordPress. MariaDB ensures that your changes are saved and allows for efficient retrieval and storage of data.
+WordPress is used for **designing and managing webpages**. It is a tool for creating and editing content, including posts, pages, and media files. **WordPress interacts with the MariaDB database to store and retrieve data.**
+
+
+### 1-VM 
+First, we need to do everything the project asks for, in a VM. So the very first step would be to install a VM. We can do it via VirtualBox which is open source and free. Here is no requirement to configure our machine to the command line, we can quite install a graphical interface like Gnome for example.
+#### 1. VM: I installed Debian 11, and considered 20 gig for my VM. (If the considered memory is not high enough, the software and the packages will not be installed correctly.) {tick these to be installed when asked during the installation : visual desktop + Gnome + SSH }
+
+ #### 2. Docker on VM 
+ Second, I installed the docker on my VM (guide here: https://docs.docker.com/engine/install/debian/) 
+ #### 3. Connected my host with my VM through SSH.
+I installed SSH-server on my VM: `sudo apt install openssh-server` then add this rule to the port forwarding according to this reference: https://dev.to/developertharun/easy-way-to-ssh-into-virtualbox-machine-any-os-just-x-steps-5d9i and then in the host machine adding this command: ```
+		ssh -p 3022 <username>@127.0.0.1```
+		and then provide the password and the user name (normal user name of VM in small letters.) 
+(By default, the SSH server on Debian does not allow direct root login via SSH for security reasons.)
+		when connected with the VM through ssh, we can clone our repo in the VM through the terminal from the host and just edit our code normally on our machine. but we need to add the ssh key of the VM to our git repo first.
 
 
 
