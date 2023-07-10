@@ -232,6 +232,45 @@ I installed SSH-server on my VM: `sudo apt install openssh-server` then add this
 (By default, the SSH server on Debian does not allow direct root login via SSH for security reasons.)
 		when connected with the VM through ssh, we can clone our repo in the VM through the terminal from the host and just edit our code normally on our machine. but we need to add the ssh key of the VM to our git repo first.
 
+### 2-Nginx
+
+NGINX acts as the software running on our local machine, functioning as the server for our website. It receives incoming HTTP requests and handles the routing and serving of web pages.
+
+#### 2.1 Docker file
+
+the Dockerfile is a text file that contains a set of instructions to build a Docker image. It specifies the base image, installs necessary dependencies, configures the environment, and sets up the container for a specific service.
+
+In the case of the NGINX Dockerfile, it defines the steps to build a Docker image that includes NGINX as the primary service.
+
+##### Base image
+
+The base image, is an OS image that is packed with the Docker container and everything in the container is based on this layer. In simple words we can say that since each container is a running process (with some added encapsulation features applied to it in order to keep it isolated from the host and from other containers) it needs a base OS to build its layers on. this OS is the base image. 
+
+![alt text](https://i.imgur.com/zw9pdaP.png)
+
+My choice: **Debian:buster**
+
+Debian:
+
+- Larger image size due to more installed packages and libraries
+- Provides a more comprehensive set of tools and packages
+- Suitable for applications with complex dependencies and compatibility requirements
+- Offers better support for older software versions
+- Good for general-purpose applications
+
+Alpine:
+
+- Smaller image size, resulting in faster image downloads and reduced disk space usage
+- Lightweight and minimalistic design
+- Has a smaller attack surface, making it potentially more secure
+- Suitable for microservices, containerized environments, and resource-constrained systems
+- Requires Alpine-specific package management (apk) instead of apt-get used in Debian
+
+by adding below line to our Dockerfile, our base image is defined.
+
+
+```
+FROM alpine:3.18
 
 
 
