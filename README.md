@@ -2,7 +2,14 @@
 
 ## Need to know
 
-### Docker
+## Containerization
+
+Containerization is a method of **operating system-level virtualization** that involves packaging an application along with its dependencies into a self-contained unit that can be executed consistently across different computing environments.
+Containerization provides a standardized and portable approach to deploying and running applications.
+
+
+![alt text](https://i.imgur.com/bbXCPt3.png)
+
 ## Docker
 
 ##### a good ref on starting: https://docs.docker.com/get-started/
@@ -111,6 +118,41 @@ a daemon refers to a background process or service that runs continuously and pe
 the background service that runs on a host machine and manages Docker containers and images. It is a central component of the Docker platform responsible for building, running, and monitoring containers.
 
 The Docker daemon, also known as `dockerd`, acts as a server process that listens to the Docker API requests from clients and performs the necessary actions to manage containerized applications. It runs as a background process and continuously runs on the host operating system.
+
+### Docker client
+
+The Docker client, often referred to as the Docker CLI (Command-Line Interface), is a command-line tool that provides a user-friendly interface for interacting with the Docker Engine.
+
+![alt text](https://i.imgur.com/OPZZb5u.png)
+
+### REST API
+
+REST (Representational State Transfer) is an architectural style for designing networked applications. RESTful APIs (Application Programming Interfaces) are interfaces that adhere to the principles of REST. They provide a standardized way for different software systems to communicate and interact with each other over the internet.
+
+Docker Engine exposes a RESTful API that allows clients (such as the Docker CLI) to interact with the Docker daemon. The API provides a set of endpoints and commands that enable users to manage containers, images, volumes, networks, and other Docker resources programmatically.
+
+### **Command-Line Interface (CLI)**
+
+The Docker CLI is a command-line tool that allows users to interact with the Docker Engine and perform various operations related to containers and images. Users can issue commands to build, run, stop, start, inspect, and manage Docker containers using the Docker CLI.
+
+### Docker registry
+
+A Docker registry is a central repository that stores Docker images. It is a server-side application that allows users to store and distribute Docker images to be used across different environments and by multiple users.
+
+The Registry is open-source, under the permissive Apache license.
+
+### docker hub
+
+a public registry provided by Docker.
+
+
+### Docker vs VM
+
+Docker and virtual machines (VMs) are both technologies used for virtualization, but they have distinct differences in their approach and architecture.
+
+![alt text](https://i.imgur.com/b5A0MkZ.png)
+
+![alt text](https://i.imgur.com/sdNTX7a.png)
 
 
 ## Project
