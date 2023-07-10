@@ -271,7 +271,39 @@ by adding below line to our Dockerfile, our base image is defined.
 
 ```
 FROM alpine:3.18
+```
 
+##### Installation
+The first thing that we need to do, is to install the packages that we need. We should install their dependencies too. 
+
+```
+RUN apk update && apk upgrade
+RUN apk add nginx
+```
+
+`RUN apk update && apk upgrade`: Updates the package repositories and upgrades the existing packages inside the Docker image.
+`RUN apk add nginx`: Installs NGINX inside the Docker image.
+`apk` is a is the package manager used in Alpine Linux. It stands for "Alpine Package Keeper."
+
+##### Configure Nginx
+
+We need to replace the default NGINX configuration file with our own. We should create a new file for example named `nginx.conf` in the same directory. Inside `nginx.conf`, we can define NGINX configuration.
+
+what is a config file? 
+
+A config file for NGINX is a file that contains configuration directives and settings for the NGINX web server. It specifies how NGINX should behave and handle various aspects of web serving, such as server listening ports, server names, request handling, proxy settings, caching, SSL/TLS configurations, and much more.
+
+
+Overall, this NGINX configuration block **sets up a basic HTTP server listening on port 80** and responding to requests for the "localhost" hostname. When a request is made to the root URL ("/"), NGINX will look for an "index.html" file in the specified root directory ("/usr/share/nginx/html") and serve it as the response.
+
+The underlying concept behind this configuration is that NGINX acts as a web server, receiving incoming requests and responding with the appropriate files. The `listen` directive determines the port on which NGINX listens for requests, and the `server_name` directive specifies the hostname that triggers this server block. The `location` block allows you to define different configurations and behaviors for specific URL paths. In this case, it handles requests for the root URL and sets the root directory and index file to serve.
+
+**Listenning to a port, what does it mean?**
+When we say a server is listening to a port, it means that the server is actively monitoring and waiting for incoming network connections on a specific communication endpoint known as a port. The server is waiting for requests or data packets to arrive on that port, and it will respond or handle those requests according to its configuration and the service running on that port.
+
+A port is a virtual construct used in networking to identify specific services or processes running on a computer or server, port is a communication endpoint in an operating system that enables processes to establish network connections and exchange data. Ports are numbered from 0 to 65535 and are divided into different ranges. For example. Well-known ports are (0-1023): Reserved for standard services like HTTP (port 80), HTTPS (port 443), FTP (port 21), SSH (port 22), etc.
+
+![alt text](https://i.imgur.com/AFJyrje.png)
 
 
  
