@@ -154,6 +154,48 @@ Docker and virtual machines (VMs) are both technologies used for virtualization,
 
 ![alt text](https://i.imgur.com/sdNTX7a.png)
 
+Docker containers use operating system-level virtualization, running on a single host operating system and share the host kernel, libraries, and resources and providing process-level isolation.
+- Virtual machines use hardware-level virtualization, offering full operating system isolation. They emulate complete computer systems, including virtual CPUs, memory, storage, and network interfaces. Each virtual machine runs its own full-fledged operating system on top of a hypervisor, which manages the hardware resources.
+
+
+![alt text](https://i.imgur.com/jNmGYP0.png)
+
+### Volumes
+
+volumes are a feature that allows data to be persistently stored and shared between containers and the host machine. Volumes provide a way to manage and handle persistent data in Docker containers, ensuring that data is preserved even when containers are stopped, removed, or replaced.
+Volumes are commonly used for scenarios where persistent data storage is required, such as databases, file uploads, application configuration files, or any other data that needs to be preserved across container restarts or upgrades.
+
+By utilizing volumes, Docker makes it easier to manage and handle persistent data within containers, separating the concerns of application logic from data storage and ensuring that important data is preserved and accessible throughout the container lifecycle.
+
+![alt text](https://i.imgur.com/cCdtfbj.png)
+
+**A Docker image is a collection of read-only layers. When you launch a container from an image, Docker adds a read-write layer to the top of that stack of read-only layers. Docker calls this the Union File System. Any time a file is changed, Docker makes a copy of the file from the read-only layers up into the top read-write layer. This leaves the original (read-only) file unchanged. When a container is deleted, that top read-write layer is lost. This means that any changes made after the container was launched are now gone. A Docker volume “lives” outside the container, on the host machine. From the container, the volume acts like a folder which you can use to store and retrieve data.**
+
+Docker volumes can be created using `docker volume create some_name` command (By default, Docker creates the volume in the Docker host's volume storage area. MacOS: /var/lib/docker/volumes/)
+But when we run docker-compose, the volumes specified in the `volumes` section of the Docker Compose file will be created automatically. Docker Compose manages the creation and management of volumes for you based on the configuration provided.
+
+![alt text](https://i.imgur.com/8PPDwri.png)
+
+
+
+
+a good source on volumes: https://www.ionos.com/digitalguide/server/know-how/docker-container-volumes/
+
+
 
 ## Project
+
+### VM 
+First, we need to do everything the project asks for, in a VM. So the very first step would be to install a VM. We can do it via VirtualBox which is open source and free. Here is no requirement to configure our machine to the command line, we can quite install a graphical interface like Gnome for example.
+#### 1. VM: I installed Debian 11, and considered 20 gig for my VM. (If the considered memory is not high enough, the software and the packages will not be installed correctly.) {tick these to be installed when asked during the installation : visual desktop + Gnome + SSH }
+
+ #### 2. Docker on VM 
+ Second, I installed the docker on my VM (guide here: https://docs.docker.com/engine/install/debian/) 
+ #### 3. Connected my host with my VM through SSH.
+I installed SSH-server on my VM: `sudo apt install openssh-server` then add this rule to the port forwarding according to this reference: https://dev.to/developertharun/easy-way-to-ssh-into-virtualbox-machine-any-os-just-x-steps-5d9i and then in the host machine adding this command: ```
+		ssh -p 3022 <username>@127.0.0.1```
+		and then provide the password and the user name (normal user name of VM in small letters.) 
+(By default, the SSH server on Debian does not allow direct root login via SSH for security reasons.)
+		when connected with the VM through ssh, we can clone our repo in the VM through the terminal from the host and just edit our code normally on our machine. but we need to add the ssh key of the VM to our git repo first.
+ 
 ## Good to Know
